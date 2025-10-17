@@ -1,0 +1,40 @@
+======================================================================
+YouTube Data Extraction Summary
+======================================================================
+
+Extraction Date: 2025-10-18 03:04:44
+
+Video Collection Summary:
+----------------------------------------------------------------------
+  Beethoven Symphony: 585 videos
+  Handel Messiah: 517 videos
+  Mozart Requiem: 554 videos
+  Mozart Coronation Mass: 250 videos
+  Bach St Matthew Passion: 497 videos
+  Bach St John Passion: 480 videos
+  Brahms A German Requiem: 503 videos
+  Haydn The Creation: 500 videos
+  Haydn The Seasons: 382 videos
+  Faure Requiem: 350 videos
+  Faure Cantique de Jean Racine: 0 videos
+  Vivaldi Gloria: 0 videos
+  Bach Magnificat: 0 videos
+  Mendelssohn Elijah: 0 videos
+  Schubert Mass: 0 videos
+  Beethoven Missa Solemnis: 50 videos
+  Mozart Ave Verum: 0 videos
+
+  TOTAL VIDEOS: 4668
+
+Channel Collection Summary:
+----------------------------------------------------------------------
+  Unique Channels: 0
+
+API Quota Usage:
+----------------------------------------------------------------------
+  Used: 0
+  Limit: 10000
+  Remaining: 10000
+  Total Requests: 0
+
+======================================================================

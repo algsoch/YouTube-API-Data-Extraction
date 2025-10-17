@@ -1,0 +1,29 @@
+======================================================================
+YouTube Data Extraction Summary
+======================================================================
+
+Extraction Date: 2025-10-18 01:59:49
+
+Video Collection Summary:
+----------------------------------------------------------------------
+  Beethoven Symphony: 585 videos
+  Handel Messiah: 517 videos
+  Mozart Requiem: 554 videos
+  Mozart Coronation Mass: 250 videos
+  Bach St Matthew Passion: 497 videos
+  Bach St John Passion: 480 videos
+
+  TOTAL VIDEOS: 2883
+
+Channel Collection Summary:
+----------------------------------------------------------------------
+  Unique Channels: 1369
+
+API Quota Usage:
+----------------------------------------------------------------------
+  Used: 6128
+  Limit: 10000
+  Remaining: 3872
+  Total Requests: 89
+
+======================================================================

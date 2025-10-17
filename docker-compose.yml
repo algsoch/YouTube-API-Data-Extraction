@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  youtube-analyzer:
+    build: .
+    container_name: youtube-analyzer
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount data directory to persist CSV files
+      - ./data:/app/data
+      # Optional: Mount .env file for API key
+      - ./.env:/app/.env:ro
+    environment:
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+networks:
+  default:
+    name: youtube-analyzer-network
