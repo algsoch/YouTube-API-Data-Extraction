@@ -1,7 +1,6 @@
 # 🐳 Docker Deployment - Quick Start Guide
 
-**Date**: October 18, 2025  
-**Application**: YouTube Classical Music Data Extraction  
+**Application**: YouTube Classical Music Data Extraction
 **Status**: ✅ Ready to Deploy
 
 ---
@@ -9,6 +8,7 @@
 ## 📋 Prerequisites
 
 Make sure you have installed:
+
 - ✅ Docker Desktop for Windows ([Download](https://www.docker.com/products/docker-desktop))
 - ✅ Docker Compose (included with Docker Desktop)
 
@@ -40,6 +40,7 @@ docker-compose build
 ```
 
 **Expected output:**
+
 ```
 [+] Building 45.2s (12/12) FINISHED
  => [internal] load build definition
@@ -65,6 +66,7 @@ docker-compose up -d
 ```
 
 **Expected output:**
+
 ```
 [+] Running 2/2
  ✔ Network youtube-analyzer-network  Created    0.1s
@@ -84,6 +86,7 @@ docker-compose logs
 ```
 
 **Access your application:**
+
 - 🌐 Web Interface: http://localhost:8000
 - 📊 API Documentation: http://localhost:8000/docs
 
@@ -92,11 +95,13 @@ docker-compose logs
 ## 📊 Container Management Commands
 
 ### View Running Containers
+
 ```powershell
 docker-compose ps
 ```
 
 ### View Logs (Real-time)
+
 ```powershell
 # All logs
 docker-compose logs -f
@@ -106,26 +111,31 @@ docker-compose logs --tail=100
 ```
 
 ### Stop the Application
+
 ```powershell
 docker-compose stop
 ```
 
 ### Start the Application (Already Built)
+
 ```powershell
 docker-compose start
 ```
 
 ### Restart the Application
+
 ```powershell
 docker-compose restart
 ```
 
 ### Stop and Remove Containers
+
 ```powershell
 docker-compose down
 ```
 
 ### Rebuild and Restart
+
 ```powershell
 # When you make code changes
 docker-compose down
@@ -138,17 +148,20 @@ docker-compose up -d
 ## 🔍 Troubleshooting
 
 ### Check Container Status
+
 ```powershell
 docker-compose ps
 ```
 
 **Expected output:**
+
 ```
 NAME                  IMAGE               STATUS        PORTS
 youtube-analyzer      youtube-analyzer    Up 2 minutes  0.0.0.0:8000->8000/tcp
 ```
 
 ### View Application Logs
+
 ```powershell
 # View all logs
 docker-compose logs
@@ -161,11 +174,13 @@ docker-compose logs --tail=50
 ```
 
 ### Access Container Shell
+
 ```powershell
 docker-compose exec youtube-analyzer bash
 ```
 
 Inside container:
+
 ```bash
 # Check Python version
 python --version
@@ -181,6 +196,7 @@ exit
 ```
 
 ### Check Container Health
+
 ```powershell
 docker inspect youtube-analyzer --format='{{.State.Health.Status}}'
 ```
@@ -198,6 +214,7 @@ Your data is persisted on your Windows machine:
 **Mounted to container:** `/app/data`
 
 **What's persisted:**
+
 - ✅ All CSV files (videos, channels)
 - ✅ Extraction summaries
 - ✅ Progress files
@@ -211,10 +228,11 @@ Your data is persisted on your Windows machine:
 Your `.env` file is automatically loaded:
 
 ```properties
-YOUTUBE_API_KEY=AIzaSyAujVOI-FzXc9W-ft1F55nyNKBtbhnzGNs
+YOUTUBE_API_KEY=Your_api_keys
 ```
 
 **To update:**
+
 1. Edit `.env` file
 2. Restart container: `docker-compose restart`
 
@@ -227,12 +245,14 @@ YOUTUBE_API_KEY=AIzaSyAujVOI-FzXc9W-ft1F55nyNKBtbhnzGNs
 **To change port:**
 
 Edit `docker-compose.yml`:
+
 ```yaml
 ports:
   - "9000:8000"  # Change 9000 to your desired port
 ```
 
 Then restart:
+
 ```powershell
 docker-compose down
 docker-compose up -d
@@ -274,6 +294,7 @@ docker push yourusername/youtube-analyzer:latest
 ### Deploy to Cloud
 
 **See DOCKER_DEPLOYMENT.md** for detailed instructions on:
+
 - ✅ AWS ECS / Fargate
 - ✅ Azure Container Instances
 - ✅ Google Cloud Run
@@ -300,11 +321,13 @@ After deployment, verify:
 ### Issue: Port 8000 Already in Use
 
 **Error:**
+
 ```
 Error starting userland proxy: listen tcp4 0.0.0.0:8000: bind: address already in use
 ```
 
 **Solution:**
+
 ```powershell
 # Stop existing server
 # Find process using port 8000
@@ -319,11 +342,13 @@ taskkill /PID <PID> /F
 ### Issue: Docker Desktop Not Running
 
 **Error:**
+
 ```
 error during connect: This error may indicate that the docker daemon is not running
 ```
 
 **Solution:**
+
 1. Open Docker Desktop application
 2. Wait for Docker to start
 3. Retry: `docker-compose up -d`
@@ -331,11 +356,13 @@ error during connect: This error may indicate that the docker daemon is not runn
 ### Issue: Container Keeps Restarting
 
 **Check logs:**
+
 ```powershell
 docker-compose logs
 ```
 
 **Common causes:**
+
 - Missing dependencies (check requirements_api.txt)
 - Invalid API key (check .env file)
 - Port conflict (change port in docker-compose.yml)
@@ -343,6 +370,7 @@ docker-compose logs
 ### Issue: Can't Access Web Interface
 
 **Verify:**
+
 ```powershell
 # Container running?
 docker-compose ps
@@ -355,6 +383,7 @@ docker-compose logs --tail=50
 ```
 
 **Try:**
+
 - http://localhost:8000
 - http://127.0.0.1:8000
 - Check Windows Firewall settings
@@ -387,11 +416,13 @@ And can access http://localhost:8000 → **You're successfully deployed!** 🚀
 ## 🆘 Need Help?
 
 **Check logs:**
+
 ```powershell
 docker-compose logs -f
 ```
 
 **Restart fresh:**
+
 ```powershell
 docker-compose down
 docker-compose build --no-cache
@@ -399,6 +430,7 @@ docker-compose up -d
 ```
 
 **Full cleanup (removes everything):**
+
 ```powershell
 docker-compose down -v
 docker system prune -a
@@ -412,6 +444,7 @@ docker system prune -a
 **Show Docker deployment as a bonus feature:**
 
 > "The application is fully containerized using Docker, which means:
+>
 > - ✅ Consistent deployment across any environment
 > - ✅ Easy to scale horizontally
 > - ✅ Works on Windows, Mac, Linux, and all cloud platforms
